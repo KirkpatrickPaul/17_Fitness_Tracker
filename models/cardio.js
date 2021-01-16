@@ -15,16 +15,12 @@ const cardioSchema = new Schema({
     required: 'Please enter the type of workout.'
   },
 
-  weight: {
+  distance: Number,
+
+  duration: {
     type: Number,
-    required: 'Please enter a weight amount.'
-  },
-
-  sets: { type: Number, required: 'Please enter how many sets you did' },
-
-  reps: Number,
-
-  duration: Number
+    required: 'Please enter a duration for your workout.'
+  }
 });
 
 const Cardio = mongoose.model('Cardio', cardioSchema);
