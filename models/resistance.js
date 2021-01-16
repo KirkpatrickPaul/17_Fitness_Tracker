@@ -2,7 +2,7 @@ const mongoose = requre('mongoose');
 
 const Schema = mongoose.Schema;
 
-const cardioSchema = new Schema({
+const resistanceSchema = new Schema({
   name: {
     type: String,
     trim: true,
@@ -26,3 +26,6 @@ const cardioSchema = new Schema({
 
   duration: Number
 });
+
+const Resistance = mongoose.model('Resistance', resistanceSchema);
+module.exports = Resistance;
