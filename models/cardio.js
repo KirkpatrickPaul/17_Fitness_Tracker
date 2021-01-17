@@ -12,7 +12,7 @@ const cardioSchema = new Schema({
   type: {
     type: String,
     trim: true,
-    required: 'Please enter the type of workout.'
+    default: 'cardio'
   },
 
   distance: Number,
