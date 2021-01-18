@@ -31,6 +31,7 @@ workoutSchema.methods.totals = function () {
     distance += exercise.distance;
     duration += exercise.duration;
   });
+
   this.totalWeight = weight;
   this.totalSets = sets;
   this.totalReps = reps;

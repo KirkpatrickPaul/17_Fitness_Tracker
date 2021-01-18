@@ -6,7 +6,6 @@ router
   .route('/workouts/:id?')
 
   .get((req, res) => {
-    console.log('api/workouts GET');
     db.Workout.find({})
       .populate('exercises')
       .sort({ date: -1 })
@@ -14,37 +13,32 @@ router
         sortedWorkouts.forEach(function (workout) {
           workout.totals();
         });
-        console.log(
-          'sortedWorkouts[0].totalDuration :>> ',
-          sortedWorkouts[0].totalDuration
-        );
         if (req.params.id === 'range') {
           res.status(200).json(sortedWorkouts);
+        } else {
+          res.status(200).json(sortedWorkouts[0]);
         }
-        res.status(200).json(sortedWorkouts[0]);
       })
       .catch((err) => {
-        console.log('err :>> ', err);
+        console.log(err);
         res.status(500).json(err);
       });
   })
 
   .post((req, res) => {
-    console.log('api/workouts POST');
     db.Workout.create(req.body)
       .then((newWorkout) => {
         res.status(201).json(newWorkout);
       })
       .catch((err) => {
+        console.log(err);
         res.status(500).json(err);
       });
   })
 
   .put((req, res) => {
-    console.log('api/workouts PUT');
     const workoutID = mongoose.Types.ObjectId(req.params.id);
     db.Exercise.create(req.body).then((newExercise) => {
-      console.log('newExercise._id :>> ', newExercise.id);
       db.Workout.findOneAndUpdate(
         { _id: workoutID },
         { $push: { exercises: newExercise._id } },
@@ -52,10 +46,10 @@ router
       )
         .populate('exercises')
         .then((updatedWorkout) => {
-          console.log('updatedWorkout :>> ', updatedWorkout);
           res.status(200).json(updatedWorkout);
         })
         .catch((err) => {
+          console.log(err);
           res.status(500).json(err);
         });
     });
