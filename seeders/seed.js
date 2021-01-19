@@ -1,3 +1,4 @@
+// this file from the boilerplate is not used. I opted to make workouts and exercises two different schemas, whereas this seed.js assumes a single schema.
 let mongoose = require('mongoose');
 let Workout = require('../models/workout.js');
 

@@ -10,6 +10,7 @@ const workoutSchema = new Schema({
       ref: 'Exercise'
     }
   ],
+  // The following get modified with the totals method
   totalWeight: Number,
   totalSets: Number,
   totalReps: Number,
