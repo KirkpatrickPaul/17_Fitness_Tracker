@@ -22,7 +22,7 @@ This app allows a user to fill in details for any exercises they do and combine 
 
 ## Usage Guide
 
-Using this app is as simple as navigating in a browser to https://blooming-beach-22911.herokuapp.com/. After that, it should look like this:
+Using this app is as simple as navigating in a browser to https://powerful-reef-63448.herokuapp.com/. After that, it should look like this:
 
 ![Fitness Tracker Homepage](./images/Homepage.jpg)
 
